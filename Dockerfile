@@ -5,4 +5,4 @@ LABEL maintainer="Osipov Sergey <sipopo@yandex.ru>"
 RUN set -x \
   && echo "test"
 
-CMD sleep 10000
+CMD [ "sleep 10000" ]
