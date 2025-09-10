@@ -8,4 +8,4 @@ RUN set -x \
   && apk add samba
 
 
-CMD [ "echo hello world" ]
+CMD [ "echo", "hello world" ]
