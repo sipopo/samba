@@ -17,4 +17,4 @@ RUN set -x \
 #EXPOSE 445/tcp
 
 ENTRYPOINT [ "/docker-entrypoint.sh" ]
-CMD [ "/usr/sbin/smbd", "-i", "/etc/smb/smb.conf" ]
+CMD [ "/usr/sbin/smbd", "-i", "-s", "/etc/smb/smb.conf" ]
