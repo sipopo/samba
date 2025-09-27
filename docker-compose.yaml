@@ -13,11 +13,8 @@ services:
       - .env
     ports:
       - '445:445'
-    network:
-      - share-service
-
+    networks:
+      - host
 
 networks:
-  share-service:
-    driver: host
-
+  host:
