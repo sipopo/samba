@@ -1,0 +1,23 @@
+# 
+#
+#
+name: share
+
+services:
+  samba-server:
+    container_name: samba-server
+    image: ghcr.io/sipopo/samba:latest
+    volumes:
+      - ${SHARE_LOCATION}:/share
+    env_file:
+      - .env
+    ports:
+      - '445:445'
+    network:
+      - share-service
+
+
+networks:
+  share-service:
+    driver: host
+
