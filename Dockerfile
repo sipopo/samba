@@ -2,15 +2,16 @@ FROM alpine:3.22
 
 LABEL maintainer="Osipov Sergey <sipopo@yandex.ru>"
 
+COPY docker-entrypoint.sh /
+
 RUN set -x \
   && apk update \
   && apk upgrade \
   && apk add samba \
-  && mkdir /share
+  && mkdir /share \
+  && chmod +x /docker-entrypoint.sh
 
 #VOLUME [ "/share" ]
-
-COPY docker-entrypoint.sh /
 
 #EXPOSE 139/tcp
 #EXPOSE 445/tcp
