@@ -6,6 +6,11 @@ name: share
 services:
   samba-server:
     container_name: samba-server
+    configs:
+      - source: samba_config
+        target: /etc/smb/smb.conf
+        mode: 0440
+
     image: ghcr.io/sipopo/samba:latest
     volumes:
       - ${SHARE_LOCATION}:/share
@@ -16,5 +21,11 @@ services:
     networks:
       - host
 
+configs:
+  samba_config:
+    file: ./smb.conf
+
 networks:
   host:
+
+

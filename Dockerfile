@@ -8,11 +8,12 @@ RUN set -x \
   && apk add samba \
   && mkdir /share
 
-VOLUME [ "/share" ]
+#VOLUME [ "/share" ]
 
 COPY docker-entrypoint.sh /
 
-EXPOSE 139/tcp
-EXPOSE 445/tcp
+#EXPOSE 139/tcp
+#EXPOSE 445/tcp
 
-CMD [ "echo", "hello world" ]
+ENTRYPOINT [ "/docker-entrypoint.sh" ]
+CMD [ "/usr/sbin/smbd", "-i", "/etc/smb/smb.conf" ]
